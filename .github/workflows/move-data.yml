@@ -1,0 +1,25 @@
+name: Move data from dev to main
+on:
+  push:
+    branches:
+      - dev
+
+
+jobs:
+  move_data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Copy data from dev to main
+        run: rsync -a ${{ github.workspace }}/datamove ${{ github.workspace }}/datamove
+
+      - name: Commit and push changes to main branch
+        run: |
+          git config --global user.name "sarathnicky"
+          git config --global user.email "sarath.nicky0626@gmail.com"
+          git add .
+          git commit -m "Move data from dev to main"
+          git push        
