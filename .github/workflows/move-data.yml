@@ -14,7 +14,7 @@ jobs:
         with:
           ref: main
       - name: Copy data from dev to main
-        run: rsync -a ${{ github.workspace }}/datamove ${{ github.workspace }}/datamove
+        run: rsync -a sarathnicky/datamove sarathnicky/datamove
 
       - name: Commit and push changes to main branch
         run: |
