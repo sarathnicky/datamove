@@ -24,4 +24,4 @@ jobs:
           git config --global user.email "sarath.nicky0626@gmail.com"
           git add .
           git commit -m "Move data from dev to main"
-          git push        
+          git push
